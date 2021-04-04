@@ -66,6 +66,11 @@ def fuzzificar(w):
         x2_middle = fuzz.interp_membership(sepal_width, sepal_width_middle, participante_sepal_width)
         x2_long = fuzz.interp_membership(sepal_width, sepal_width_long, participante_sepal_width)
 
+        ##Prints para teste
+        #print(x2_short)
+        #print(x2_middle)
+        #print(x2_long)
+
 
 
 
