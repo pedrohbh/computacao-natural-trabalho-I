@@ -1,4 +1,7 @@
 import pandas as pd
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
 
 iris = pd.read_csv('iris.csv')
 
@@ -24,3 +27,7 @@ print('-----------------------------------------------')
 iris.to_csv("iris_teste.csv", sep=',', index=False)
 
 #Fim do processo de normatização dos dados
+sepal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_length')
+sepal_width = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_width')
+petal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'petal_length')
+petal_width = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'petal_width')
