@@ -50,10 +50,19 @@ def fuzzificar(w):
     for i in range(0, 2):
         participante = iris.iloc[[i],:]
 
+        #Sepal Length
         participante_sepal_length = participante['sepal_length']
         print(participante_sepal_length)
 
         x1_short = fuzz.interp_membership(sepal_length, sepal_length_short, participante_sepal_length)
+        x1_middle = fuzz.interp_membership(sepal_length, sepal_length_middle, participante_sepal_length)
+        x1_long = fuzz.interp_membership(sepal_length, sepal_length_long, participante_sepal_length)
+
+
+        participante_sepal_width = participante['sepal_width']
+        print(participante_sepal_width)
+
+
 
 
 
