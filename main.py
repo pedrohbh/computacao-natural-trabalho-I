@@ -31,3 +31,11 @@ sepal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_length')
 sepal_width = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_width')
 petal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'petal_length')
 petal_width = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'petal_width')
+
+classe_flor = ctrl.Consequent(np.arange(0, 11, 1), 'classe_flor')
+
+classe_flor['setosa'] = fuzz.trimf(classe_flor.universe, [0, 0, 5])
+classe_flor['versicolor'] = fuzz.trimf(classe_flor.universe, [0, 5, 10])
+classe_flor['virginica'] = fuzz.trimf(classe_flor.universe, [5, 10, 10])
+
+classe_flor.view()
