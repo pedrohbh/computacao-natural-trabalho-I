@@ -45,11 +45,19 @@ def fuzzificar(w):
     petal_width_middle = fuzz.trimf(petal_width, [0, w, 1])
     petal_width_long = fuzz.trimf(petal_width, [w, 1, 1])
 
-    x1_short = fuzz.interp_membership(sepal_length, sepal_length_short, 2)
+    N = iris.shape[0]
+
+    for i in range(0, 2):
+        participante = iris.iloc[[i],:]
+
+        participante_sepal_length = participante['sepal_length']
+        print(participante_sepal_length)
+
+        x1_short = fuzz.interp_membership(sepal_length, sepal_length_short, participante_sepal_length)
 
 
 
-
+fuzzificar(0.6)
 
 
 
