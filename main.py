@@ -24,7 +24,7 @@ print('tail():'); print(iris.tail())
 print('-----------------------------------------------')
 
 #Salva arquivo para teste
-iris.to_csv("iris_teste.csv", sep=',', index=False)
+#iris.to_csv("iris_teste.csv", sep=',', index=False)
 
 #Fim do processo de normatização dos dados
 sepal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_length')
