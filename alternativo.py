@@ -45,7 +45,7 @@ def fuzzificar(w):
     petal_width_middle = fuzz.trimf(petal_width, [0, w, 1])
     petal_width_long = fuzz.trimf(petal_width, [w, 1, 1])
 
-    
+    x1_short = fuzz.interp_membership(sepal_length, sepal_length_short, 2)
 
 
 
