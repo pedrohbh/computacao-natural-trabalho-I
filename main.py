@@ -27,6 +27,8 @@ print('-----------------------------------------------')
 #iris.to_csv("iris_teste.csv", sep=',', index=False)
 
 #Fim do processo de normatização dos dados
+
+#Início do código classificador Fuzzy
 sepal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_length')
 sepal_width = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'sepal_width')
 petal_length = ctrl.Antecedent(np.arange(0.0, 1.1, 0.1), 'petal_length')
@@ -47,4 +49,11 @@ for elemento in [sepal_length, sepal_width, petal_length, petal_width]:
 
 figura = sepal_length.view()
 #figura.savefig('exemplo.png')
+
+x1 = sepal_length
+x2 = sepal_width
+x3 = petal_length
+x4 = petal_width
+
+rule1 = ctrl.Rule( ( x1['short'] | x1['long'] ) & ( x2['middle'] | x2['long'] ) & ( x3['middle'] | x3['long'] ) & ( x4['middle'] ) )
 
