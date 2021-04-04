@@ -71,7 +71,17 @@ for i in range(0, N):
     participante = iris.iloc[[i], :]
     for nome in [ 'sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
         classe_resposta.input[nome] = participante[nome]
-    print(classe_resposta.input)
+    #print(classe_resposta.input)
 
     classe_resposta.compute()
-    print(classe_resposta.output)
+    #print(classe_resposta.output['classe_flor'])
+    resultado_predito = classe_resposta.output['classe_flor']
+    classe_predita = ""
+    if resultado_predito <= 2.5:
+        classe_predita = 'Setosa'
+    elif resultado_predito > 2.5 and resultado_predito <= 7.5:
+        classe_predita = 'Versicolor'
+    else:
+        classe_predita = 'Virginica'
+    print(classe_predita)
+
