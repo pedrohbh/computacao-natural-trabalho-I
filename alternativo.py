@@ -62,6 +62,10 @@ def fuzzificar(w):
         participante_sepal_width = participante['sepal_width']
         print(participante_sepal_width)
 
+        x2_short = fuzz.interp_membership(sepal_width, sepal_width_short, participante_sepal_width)
+        x2_middle = fuzz.interp_membership(sepal_width, sepal_width_middle, participante_sepal_width)
+        x2_long = fuzz.interp_membership(sepal_width, sepal_width_long, participante_sepal_width)
+
 
 
 
