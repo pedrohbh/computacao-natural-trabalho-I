@@ -78,10 +78,10 @@ for i in range(0, N):
     resultado_predito = classe_resposta.output['classe_flor']
     classe_predita = ""
     if resultado_predito <= 2.5:
-        classe_predita = 'Setosa'
+        classe_predita = 'class_Iris-setosa'
     elif resultado_predito > 2.5 and resultado_predito <= 7.5:
-        classe_predita = 'Versicolor'
+        classe_predita = 'class_Iris-versicolor'
     else:
-        classe_predita = 'Virginica'
+        classe_predita = 'class_Iris-virginica'
     print(classe_predita)
 
