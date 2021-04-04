@@ -57,4 +57,5 @@ x4 = petal_width
 
 rule1 = ctrl.Rule( ( x1['short'] | x1['long'] ) & ( x2['middle'] | x2['long'] ) & ( x3['middle'] | x3['long'] ) & ( x4['middle'] ) )
 rule2 = ctrl.Rule( ( x3['short'] | x3['middle'] ) & ( x4['short'] ) )
-#rule3 = ctrl.Rule( ( ))
+rule3 = ctrl.Rule( ( x2['short'] | x2['middle'] ) & ( x3['long'] ) & ( x4['long'] ) )
+
