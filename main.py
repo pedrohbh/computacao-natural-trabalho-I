@@ -44,9 +44,9 @@ def fuzzificar(w):
     classe_flor.view()
 
     for elemento in [sepal_length, sepal_width, petal_length, petal_width]:
-        elemento['short'] = fuzz.trimf(elemento.universe, [0.0, 0.0, 0.6])
-        elemento['middle'] = fuzz.trimf(elemento.universe, [0.0, 0.6, 1.0])
-        elemento['long'] = fuzz.trimf(elemento.universe, [0.6, 1.0, 1.0])
+        elemento['short'] = fuzz.trimf(elemento.universe, [0.0, 0.0, w])
+        elemento['middle'] = fuzz.trimf(elemento.universe, [0.0, w, 1.0])
+        elemento['long'] = fuzz.trimf(elemento.universe, [w, 1.0, 1.0])
 
     figura = sepal_length.view()
     #figura.savefig('exemplo.png')
@@ -98,4 +98,4 @@ def fuzzificar(w):
     print("Total acertado: ", round(total_acerto, 2))
 
 
-fuzzificar(10)
+fuzzificar(0.6)
