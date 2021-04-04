@@ -59,3 +59,5 @@ rule1 = ctrl.Rule( ( x1['short'] | x1['long'] ) & ( x2['middle'] | x2['long'] ) 
 rule2 = ctrl.Rule( ( x3['short'] | x3['middle'] ) & ( x4['short'] ), classe_flor['setosa'] )
 rule3 = ctrl.Rule( ( x2['short'] | x2['middle'] ) & ( x3['long'] ) & ( x4['long'] ), classe_flor['virginica'] )
 rule4 = ctrl.Rule( ( x1['middle'] ) & ( x2['short'] | x2['middle'] ) & ( x3['short'] ) & ( x4['long'] ), classe_flor['versicolor'] )
+
+classe_flores_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4])
