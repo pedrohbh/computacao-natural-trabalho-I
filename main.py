@@ -61,3 +61,17 @@ rule3 = ctrl.Rule( ( x2['short'] | x2['middle'] ) & ( x3['long'] ) & ( x4['long'
 rule4 = ctrl.Rule( ( x1['middle'] ) & ( x2['short'] | x2['middle'] ) & ( x3['short'] ) & ( x4['long'] ), classe_flor['versicolor'] )
 
 classe_flores_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4])
+
+classe_resposta = ctrl.ControlSystemSimulation(classe_flores_ctrl)
+
+N = iris.shape[0]
+print(N)
+
+for i in range(0, N):
+    participante = iris.iloc[[i], :]
+    for nome in [ 'sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
+        classe_resposta.input[nome] = participante[nome]
+    print(classe_resposta.input)
+
+    classe_resposta.compute()
+    print(classe_resposta.output)
