@@ -39,3 +39,12 @@ classe_flor['versicolor'] = fuzz.trimf(classe_flor.universe, [0, 5, 10])
 classe_flor['virginica'] = fuzz.trimf(classe_flor.universe, [5, 10, 10])
 
 classe_flor.view()
+
+for elemento in [sepal_length, sepal_width, petal_length, petal_width]:
+    elemento['short'] = fuzz.trimf(elemento.universe, [0.0, 0.0, 0.6])
+    elemento['middle'] = fuzz.trimf(elemento.universe, [0.0, 0.6, 1.0])
+    elemento['long'] = fuzz.trimf(elemento.universe, [0.6, 1.0, 1.0])
+
+figura = sepal_length.view()
+#figura.savefig('exemplo.png')
+
