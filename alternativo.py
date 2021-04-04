@@ -24,14 +24,22 @@ print('tail():'); print(iris.tail())
 print('-----------------------------------------------')
 
 def fuzzificar(w):
-    sepal_width = np.arange(0, 1.01, 0.01)
+    sepal_length = np.arange(0, 1.01, 0.01)
     sepal_width = np.arange(0, 1.01, 0.01)
     petal_length = np.arange(0, 1.01, 0.01)
     petal_width = np.arange(0, 1.01, 0.01)
+
+    sepal_length_short = fuzz.trimf(sepal_length, [0, 0, w])
+    sepal_length_middle = fuzz.trimf(sepal_length, [0, w, 1])
+    sepal_length_long = fuzz.trimf(sepal_length, [w, 1, 1])
 
     sepal_width_short = fuzz.trimf(sepal_width, [0, 0, w])
     sepal_width_middle = fuzz.trimf(sepal_width, [0, w, 1])
     sepal_width_long = fuzz.trimf(sepal_width, [w, 1, 1])
 
     
+
+
+
+
 
