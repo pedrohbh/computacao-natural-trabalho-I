@@ -66,7 +66,7 @@ classe_resposta = ctrl.ControlSystemSimulation(classe_flores_ctrl)
 
 N = iris.shape[0]
 print(N)
-
+acertos = 0
 for i in range(0, N):
     participante = iris.iloc[[i], :]
     for nome in [ 'sepal_length', 'sepal_width', 'petal_length', 'petal_width']:
@@ -84,4 +84,16 @@ for i in range(0, N):
     else:
         classe_predita = 'class_Iris-virginica'
     print(classe_predita)
+    Y = iris[classe_predita]
+    Y_teste = Y.iloc[i]
+
+    if (Y_teste == 1):
+        acertos += 1
+        print("Acertou")
+    else:
+        print("Errou")
+
+total_acerto = (acertos / N)
+print("Total acertado: ", round(total_acerto, 2))
+
 
