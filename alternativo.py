@@ -71,6 +71,19 @@ def fuzzificar(w):
         #print(x2_middle)
         #print(x2_long)
 
+        participante_petal_length = participante['petal_length']
+        print(participante_petal_length)
+
+        x3_short = fuzz.interp_membership(petal_length, petal_length_short, participante_petal_length)
+        x3_middle = fuzz.interp_membership(petal_length, petal_length_middle, participante_petal_length)
+        x3_long = fuzz.interp_membership(petal_length, petal_length_long, participante_petal_length)
+
+        ##Prints para teste
+        #print(x3_short)
+        #print(x3_middle)
+        #print(x3_long)
+
+
 
 
 
