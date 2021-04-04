@@ -83,6 +83,11 @@ def fuzzificar(w):
         #print(x3_middle)
         #print(x3_long)
 
+        participante_petal_width = participante['petal_width']
+        print(participante_petal_width)
+
+        x4_short = fuzz.interp_membership(petal_width, petal_width_short, partipante_petal_width)
+
 
 
 
