@@ -47,6 +47,8 @@ def fuzzificar(w):
 
     N = iris.shape[0]
 
+    acertos = 0
+
     for i in range(0, N):
         participante = iris.iloc[[i],:]
 
@@ -111,7 +113,23 @@ def fuzzificar(w):
             classe_resposta = 'class_Iris-virginica'
         print(classe_resposta)
 
+
         
+        Y = iris[classe_resposta]
+        Y_teste = Y.iloc[i]
+        if ( Y_teste == 1):
+            acertos += 1
+            print("acertou")
+        else:
+            print("errou")
+    
+    acuracia = acertos / N
+    print('acurácia = ',round(acuracia,2))
+
+
+
+
+
 
 
 
