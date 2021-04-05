@@ -47,7 +47,7 @@ def fuzzificar(w):
 
     N = iris.shape[0]
 
-    for i in range(0, 2):
+    for i in range(0, N):
         participante = iris.iloc[[i],:]
 
         #Sepal Length
@@ -98,6 +98,20 @@ def fuzzificar(w):
         print(rule2)
         print(rule3)
         print(rule4)
+
+        vetor_resposta = [rule1, rule2, rule3, rule4]
+        indice_maximo = vetor_resposta.index(max(vetor_resposta))
+        print(indice_maximo)
+        classe_resposta = ""
+        if indice_maximo == 0 or indice_maximo == 3:
+            classe_resposta = "class_Iris-versicolor"
+        elif indice_maximo == 1:
+            classe_resposta = "class_Iris-setosa"
+        elif indice_maximo == 2:
+            classe_resposta = 'class_Iris-virginica'
+        print(classe_resposta)
+
+        
 
 
 
