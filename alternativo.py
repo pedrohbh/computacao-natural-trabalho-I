@@ -91,7 +91,7 @@ def fuzzificar(w):
         x4_long = fuzz.interp_membership(petal_width, petal_width_long, participante_petal_width)
 
         rule1 = min(max(x1_short, x1_long), max(x2_middle, x2_long), max(x3_middle, x3_long), x4_middle)
-        rule2 = min(max(x3_short,x3_middle),x4_middle)
+        rule2 = min(max(x3_short,x3_middle),x4_short)
         rule3 = min(max(x2_short, x2_middle),x3_long,x4_long)
         rule4 = min(x1_middle, max(x2_short, x2_middle), x3_short, x4_long)
         print(rule1)
