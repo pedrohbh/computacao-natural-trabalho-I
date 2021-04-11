@@ -127,19 +127,4 @@ def fuzzificar(w1, w2, w3, w4):
     print('acurácia = ',round(acuracia,2))
     return acuracia
 
-
-
-
-
-
-
-
-
-
-
-
-
 fuzzificar(0.6, 0.6, 0.6, 0.6)
-
-
-
