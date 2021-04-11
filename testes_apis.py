@@ -170,19 +170,22 @@ algorithm = DE(
 start =  time.perf_counter()
 res = minimize(functional_problem, algorithm, seed=1, verbose=False)
 
-print("Best solution found: \nX = %s\nF = %s" % (res.X, res.F))
+print("Melhor solução encontrada DE: \nX = %s\nF = %s" % (res.X, -(res.F)))
 end = time.perf_counter()
-print('Tempo gasto: ',end - start)
+print('Tempo gasto para DE: %s segundos' % (end - start))
 
 print('-----------------------------------------------')
 print("PSO")
 algorithm = PSO()
 
+
+start =  time.perf_counter()
 res = minimize(functional_problem,
                algorithm,
                seed=1,
                verbose=False)
-
-print("Best solution found: \nX = %s\nF = %s" % (res.X, res.F))
+end = time.perf_counter()
+print('Tempo gasto para PSO: %s segundos' % (end - start))
+print("Melhor solução encontrada PSO: \nX = %s\nF = %s" % (res.X, -(res.F)))
 
 
