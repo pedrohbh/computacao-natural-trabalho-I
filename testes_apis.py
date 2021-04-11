@@ -10,6 +10,7 @@ from pymoo.operators.sampling.latin_hypercube_sampling import LatinHypercubeSamp
 from pymoo.optimize import minimize
 from pymoo.model.problem import Problem
 from pymoo.model.problem import FunctionalProblem
+from pymoo.algorithms.so_pso import PSO
 
 iris = pd.read_csv('iris.csv')
 
@@ -172,5 +173,16 @@ res = minimize(functional_problem, algorithm, seed=1, verbose=False)
 print("Best solution found: \nX = %s\nF = %s" % (res.X, res.F))
 end = time.perf_counter()
 print('Tempo gasto: ',end - start)
+
+print('-----------------------------------------------')
+print("PSO")
+algorithm = PSO()
+
+res = minimize(functional_problem,
+               algorithm,
+               seed=1,
+               verbose=False)
+
+print("Best solution found: \nX = %s\nF = %s" % (res.X, res.F))
 
 

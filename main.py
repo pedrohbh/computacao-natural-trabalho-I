@@ -23,27 +23,27 @@ print('-----------------------------------------------')
 print('tail():'); print(iris.tail())
 print('-----------------------------------------------')
 
-def fuzzificar(w):
+def fuzzificar(w1, w2, w3, w4):
     sepal_length = np.arange(0, 1.01, 0.01)
     sepal_width = np.arange(0, 1.01, 0.01)
     petal_length = np.arange(0, 1.01, 0.01)
     petal_width = np.arange(0, 1.01, 0.01)
 
-    sepal_length_short = fuzz.trimf(sepal_length, [0, 0, w])
-    sepal_length_middle = fuzz.trimf(sepal_length, [0, w, 1])
-    sepal_length_long = fuzz.trimf(sepal_length, [w, 1, 1])
+    sepal_length_short = fuzz.trimf(sepal_length, [0, 0, w1])
+    sepal_length_middle = fuzz.trimf(sepal_length, [0, w1, 1])
+    sepal_length_long = fuzz.trimf(sepal_length, [w1, 1, 1])
 
-    sepal_width_short = fuzz.trimf(sepal_width, [0, 0, w])
-    sepal_width_middle = fuzz.trimf(sepal_width, [0, w, 1])
-    sepal_width_long = fuzz.trimf(sepal_width, [w, 1, 1])
+    sepal_width_short = fuzz.trimf(sepal_width, [0, 0, w2])
+    sepal_width_middle = fuzz.trimf(sepal_width, [0, w2, 1])
+    sepal_width_long = fuzz.trimf(sepal_width, [w2, 1, 1])
 
-    petal_length_short = fuzz.trimf(petal_length, [0, 0, w])
-    petal_length_middle = fuzz.trimf(petal_length, [0, w, 1])
-    petal_length_long = fuzz.trimf(petal_length, [w, 1, 1])
+    petal_length_short = fuzz.trimf(petal_length, [0, 0, w3])
+    petal_length_middle = fuzz.trimf(petal_length, [0, w3, 1])
+    petal_length_long = fuzz.trimf(petal_length, [w3, 1, 1])
 
-    petal_width_short = fuzz.trimf(petal_width, [0, 0, w])
-    petal_width_middle = fuzz.trimf(petal_width, [0, w, 1])
-    petal_width_long = fuzz.trimf(petal_width, [w, 1, 1])
+    petal_width_short = fuzz.trimf(petal_width, [0, 0, w4])
+    petal_width_middle = fuzz.trimf(petal_width, [0, w4, 1])
+    petal_width_long = fuzz.trimf(petal_width, [w4, 1, 1])
 
     N = iris.shape[0]
 
@@ -139,7 +139,7 @@ def fuzzificar(w):
 
 
 
-fuzzificar(0.6)
+fuzzificar(0.14662504, 0.16173636, 0.46890129, 0.19206124)
 
 
 
