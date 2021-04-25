@@ -176,6 +176,8 @@ print("Melhor solução encontrada DE: \nX = %s\nF = %s" % (res.X, -(res.F)))
 end = time.perf_counter()
 print('Tempo gasto para DE: %s segundos' % (end - start))
 
+"""
+#Para impressão do gráfico do DE, descomentar este trecho
 n_evals = np.array([e.evaluator.n_eval for e in res.history])
 opt = np.array([e.opt[0].F for e in res.history])
 opt = -opt
@@ -184,6 +186,7 @@ plt.title("Convergência - DE")
 plt.plot(n_evals, opt, "--")
 plt.yscale("log")
 plt.show()
+"""
 
 print('-----------------------------------------------')
 print("PSO")
@@ -200,6 +203,8 @@ end = time.perf_counter()
 print('Tempo gasto para PSO: %s segundos' % (end - start))
 print("Melhor solução encontrada PSO: \nX = %s\nF = %s" % (res.X, -(res.F)))
 
+"""
+#Para impressão do gráfico do PSO, descomentar este trecho
 n_evals = np.array([e.evaluator.n_eval for e in res.history])
 opt = np.array([e.opt[0].F for e in res.history])
 opt = -opt
@@ -208,4 +213,4 @@ plt.title("Convergência - PSO")
 plt.plot(n_evals, opt, "--")
 plt.yscale("log")
 plt.show()
-
+"""
