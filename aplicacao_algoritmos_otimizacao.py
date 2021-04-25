@@ -12,6 +12,8 @@ from pymoo.model.problem import Problem
 from pymoo.model.problem import FunctionalProblem
 from pymoo.algorithms.so_pso import PSO
 
+import matplotlib.pyplot as plt
+
 iris = pd.read_csv('iris.csv')
 
 #Processo de normatização dos dados
@@ -168,11 +170,20 @@ algorithm = DE(
 )
 
 start =  time.perf_counter()
-res = minimize(functional_problem, algorithm, seed=1, verbose=False)
+res = minimize(functional_problem, algorithm, seed=1, verbose=False, save_history=True)
 
 print("Melhor solução encontrada DE: \nX = %s\nF = %s" % (res.X, -(res.F)))
 end = time.perf_counter()
 print('Tempo gasto para DE: %s segundos' % (end - start))
+
+n_evals = np.array([e.evaluator.n_eval for e in res.history])
+opt = np.array([e.opt[0].F for e in res.history])
+opt = -opt
+
+plt.title("Convergência - DE")
+plt.plot(n_evals, opt, "--")
+plt.yscale("log")
+plt.show()
 
 print('-----------------------------------------------')
 print("PSO")
@@ -183,9 +194,18 @@ start =  time.perf_counter()
 res = minimize(functional_problem,
                algorithm,
                seed=1,
-               verbose=False)
+               verbose=False,
+               save_history=True)
 end = time.perf_counter()
 print('Tempo gasto para PSO: %s segundos' % (end - start))
 print("Melhor solução encontrada PSO: \nX = %s\nF = %s" % (res.X, -(res.F)))
 
+n_evals = np.array([e.evaluator.n_eval for e in res.history])
+opt = np.array([e.opt[0].F for e in res.history])
+opt = -opt
+
+plt.title("Convergência - PSO")
+plt.plot(n_evals, opt, "--")
+plt.yscale("log")
+plt.show()
 
