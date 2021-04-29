@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
+import matplotlib.pyplot as plt
 
 iris = pd.read_csv('iris.csv')
 
@@ -45,21 +46,40 @@ def imprime_classificador_fuzzy(w1, w2, w3, w4):
     petal_width_middle = fuzz.trimf(petal_width, [0, w4, 1])
     petal_width_long = fuzz.trimf(petal_width, [w4, 1, 1])
 
-    fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=3, figsize=(8,9))
+    fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=4, figsize=(8,9))
 
     ax0.plot(sepal_length, sepal_length_short, 'b', linewidth=1.5, label='Short')
     ax0.plot(sepal_length, sepal_length_middle, 'g', linewidth=1.5, label='Middle')
     ax0.plot(sepal_length, sepal_length_long, 'r', linewidth=1.5, label='Long')
     ax0.set_title('Sepal Length')
-    ax0.legend
+    ax0.legend()
 
-    for ax in (ax0):
+    ax1.plot(sepal_width, sepal_width_short, 'b', linewidth=1.5, label='Short')
+    ax1.plot(sepal_width, sepal_width_middle, 'g', linewidth=1.5, label='Middle')
+    ax1.plot(sepal_width, sepal_width_long, 'r', linewidth=1.5, label='Long')
+    ax1.set_title('Sepal Width')
+    ax1.legend()
+
+    ax2.plot(petal_length, petal_length_short, 'b', linewidth=1.5, label='Short')
+    ax2.plot(petal_length, petal_length_middle, 'g', linewidth=1.5, label='Middle')
+    ax2.plot(petal_length, petal_length_long, 'r', linewidth=1.5, label='Long')
+    ax2.set_title('Petal Length')
+    ax2.legend()
+
+    ax3.plot(petal_width, petal_width_short, 'b', linewidth=1.5, label='Short')
+    ax3.plot(petal_width, petal_width_middle, 'g', linewidth=1.5, label='Middle')
+    ax3.plot(petal_width, petal_width_long, 'r', linewidth=1.5, label='Long')
+    ax3.set_title('Petal Width')
+    ax3.legend()
+
+    for ax in (ax0, ax1, ax2, ax3):
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
         ax.get_xaxis().tick_bottom()
         ax.get_yaxis().tick_left()
     
     plt.tight_layout()
+    plt.show()
 
 def fuzzificar(w1, w2, w3, w4):
     sepal_length = np.arange(0, 1.01, 0.01)
@@ -165,4 +185,5 @@ def fuzzificar(w1, w2, w3, w4):
     print('acurácia = ',round(acuracia,2))
     return acuracia
 
-fuzzificar(0.6, 0.6, 0.6, 0.6)
+#fuzzificar(0.6, 0.6, 0.6, 0.6)
+imprime_classificador_fuzzy(0.6, 0.6, 0.6, 0.6)
