@@ -160,7 +160,7 @@ functional_problem = FunctionalProblem(4,
                                        xu=1)
 
 algorithm = DE(
-    pop_size=10,
+    pop_size=40,
     sampling=LatinHypercubeSampling(iterations=100, criterion="maxmin"),
     variant="DE/rand/1/bin",
     CR=0.9,
