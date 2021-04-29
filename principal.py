@@ -23,6 +23,44 @@ print('-----------------------------------------------')
 print('tail():'); print(iris.tail())
 print('-----------------------------------------------')
 
+def imprime_classificador_fuzzy(w1, w2, w3, w4):
+    sepal_length = np.arange(0, 1.01, 0.01)
+    sepal_width = np.arange(0, 1.01, 0.01)
+    petal_length = np.arange(0, 1.01, 0.01)
+    petal_width = np.arange(0, 1.01, 0.01)
+
+    sepal_length_short = fuzz.trimf(sepal_length, [0, 0, w1])
+    sepal_length_middle = fuzz.trimf(sepal_length, [0, w1, 1])
+    sepal_length_long = fuzz.trimf(sepal_length, [w1, 1, 1])
+
+    sepal_width_short = fuzz.trimf(sepal_width, [0, 0, w2])
+    sepal_width_middle = fuzz.trimf(sepal_width, [0, w2, 1])
+    sepal_width_long = fuzz.trimf(sepal_width, [w2, 1, 1])
+
+    petal_length_short = fuzz.trimf(petal_length, [0, 0, w3])
+    petal_length_middle = fuzz.trimf(petal_length, [0, w3, 1])
+    petal_length_long = fuzz.trimf(petal_length, [w3, 1, 1])
+
+    petal_width_short = fuzz.trimf(petal_width, [0, 0, w4])
+    petal_width_middle = fuzz.trimf(petal_width, [0, w4, 1])
+    petal_width_long = fuzz.trimf(petal_width, [w4, 1, 1])
+
+    fig, (ax0, ax1, ax2, ax3) = plt.subplots(nrows=3, figsize=(8,9))
+
+    ax0.plot(sepal_length, sepal_length_short, 'b', linewidth=1.5, label='Short')
+    ax0.plot(sepal_length, sepal_length_middle, 'g', linewidth=1.5, label='Middle')
+    ax0.plot(sepal_length, sepal_length_long, 'r', linewidth=1.5, label='Long')
+    ax0.set_title('Sepal Length')
+    ax0.legend
+
+    for ax in (ax0):
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.get_xaxis().tick_bottom()
+        ax.get_yaxis().tick_left()
+    
+    plt.tight_layout()
+
 def fuzzificar(w1, w2, w3, w4):
     sepal_length = np.arange(0, 1.01, 0.01)
     sepal_width = np.arange(0, 1.01, 0.01)
