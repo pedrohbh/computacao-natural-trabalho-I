@@ -186,10 +186,11 @@ def fuzzificar(w1, w2, w3, w4):
     return acuracia
 
 fuzzificar(0.6, 0.6, 0.6, 0.6)
-
+"""
 #Descomente para imprimir os classificadores
 #DE
 imprime_classificador_fuzzy(0.41658349, 0.44478748, 0.56807423, 0.21583088)
 
 #PSO
 imprime_classificador_fuzzy(0.99853869, 0.68652673, 0.26936029, 0.41654659)
+"""
